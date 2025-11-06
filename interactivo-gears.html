@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Conociendo Gears of War - Interactivo</title>
+<link rel="stylesheet" href="css/gears-style.css">
+  <style>
+    body {
+      background: linear-gradient(180deg, #0b0c0d 0%, #151618 100%);
+      color: #ddd;
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+      margin: 12px;
+    }
+    #header {
+      background: linear-gradient(90deg,#2b2b2b,#0d0d0d);
+      border-radius: 8px;
+      padding: 10px;
+      text-align:center;
+      box-shadow: 0 6px 18px rgba(0,0,0,.6);
+    }
+    #header h3 { color: #f04a3e; margin:0; letter-spacing:1px; }
+    #seccion { display:flex; flex-wrap:wrap; gap:12px; margin-top:12px; }
+    .barra {
+      padding: 12px;
+      background: linear-gradient(180deg,#121214,#1d1f21);
+      border-radius:10px;
+      flex: 3;
+      min-width:320px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      box-shadow: 0 6px 16px rgba(0,0,0,.6);
+    }
+    .contenido {
+      padding: 12px;
+      border-radius:10px;
+      background: linear-gradient(180deg,#1b1b1c,#262728);
+      flex: 1 150px;
+      min-width:60px;
+    }
+    .subcontenido2 { display:flex; justify-content:center; gap:12px; margin-top:10px; flex-wrap:wrap; }
+    #resultado { display:flex; flex-direction:column; align-items:center; gap:8px; margin-top:10px; }
+    .texto-rojo{ font-size:36px; font-weight:bold; color:#f04a3e; }
+    #imagen-interactiva {
+      position: relative;
+      width: 640px;
+      height: 640px;
+      background-image: url('images/gears-silhouette.png');
+      background-size: cover;
+      background-position: center;
+      border: 3px solid rgba(240,74,62,0.15);
+      border-radius:12px;
+      overflow:hidden;
+    }
+    .hotspot {
+      position:absolute;
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      border: 2px solid rgba(240,74,62,0.9);
+      background: rgba(0,0,0,0.45);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      box-shadow: 0 6px 12px rgba(240,74,62,0.06);
+    }
+    .hotspot span { color:#fff; font-weight:bold; }
+    #titulo-info { margin:0 0 6px 0; color:#f7f7f7; }
+    #texto-info { color:#cfcfcf; }
+    .proyecto { height:140px; max-width:140px; background:#0f0f10; border-radius:8px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .proyecto img { width:100%; height:100%; object-fit:cover; }
+    #footer { display:flex; gap:12px; margin-top:12px; align-items:center; justify-content:center; }
+    #instrucciones, #prueba { cursor:pointer; width:120px; }
+
+    /* Video contenedor */
+    .video-container {
+      margin-top: 72px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      background: #000;
+    }
+    video, iframe {
+      width: 100%;
+      height: 200px;
+      display: block;
+      border: none;
+    }
+
+    @media (max-width:720px){
+      #imagen-interactiva{ width:260px; height:520px; }
+      video, iframe { height: 180px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h3>Bienvenido a "Conociendo Gears of War"</h3>
+    <p style="color:#aaa; margin:6px 0 0 0; font-size:14px;">Haz clic en los puntos para descubrir personajes, armas y enemigos</p>
+  </div>
+
+  <div id="seccion">
+    <div class="barra">
+      <div id="imagen-interactiva" aria-label="Imagen interactiva Gears">
+        <div id="hotspot1" class="hotspot" style="top:200px; left:230px;"><span>1</span></div>
+        <div id="hotspot2" class="hotspot" style="top:270px; left:320px;"><span>2</span></div>
+        <div id="hotspot3" class="hotspot" style="top:450px; left:70px;"><span>3</span></div>
+      </div>
+    </div>
+
+    <div class="contenido">
+      <div class="subcontenido1">
+        <h2 id="titulo-info">Instrucciones</h2>
+        <p id="texto-info">Haz click en cada punto de la imagen para ver la descripción. Luego realiza la prueba para medir tu conocimiento del universo Gears of War.</p>
+      </div>
+
+      <div class="subcontenido2">
+        <div class="proyecto">
+          <img id="imagen-info" src="images/gear-emblem.png" alt="Imagen info">
+        </div>
+      </div>
+
+      <!-- 🔥 Video de referencia -->
+      <div class="video-container" id="video-contenedor">
+        <!-- Opción 1: Video local -->
+        <video id="video-local" controls>
+          <source src="videos/gears_trailer.mp4" type="video/mp4">
+          Tu navegador no soporta video HTML5.
+        </video>
+
+        <!-- Opción 2: YouTube (solo descomenta esta línea y comenta el video local)
+        <iframe id="video-youtube" src="https://www.youtube.com/embed/rWZKG6T_PgY" title="Tráiler Gears of War" allowfullscreen></iframe>
+        -->
+      </div>
+
+      <div id="resultado" class="invisible">
+        <h2>Tu resultado:</h2>
+        <span id="calif" class="texto-rojo">0/5</span>
+        <img id="imagen-resultado" width="160" src="images/ping.gif" alt="Animación resultado">
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <div id="instrucciones"><img width="120" src="images/instrucciones-gears.png" alt="Instrucciones"></div>
+    <div id="prueba"><img width="120" src="images/test-gears.png" alt="Ir a prueba"></div>
+  </div>
+
+  <script>
+    let puntaje = 1;
+    let respuesta1 = "";
+
+    document.getElementById('hotspot1').onclick = function() {
+      document.getElementById('titulo-info').textContent = 'Marcus Fénix';
+      document.getElementById('texto-info').textContent = 'Marcus Fénix es el protagonista icónico de la serie, soldado de la CGO. Su valentía y su Lancer lo convierten en un símbolo de resistencia.';
+      document.getElementById('imagen-info').setAttribute('src', 'images/marcus.png');
+      document.getElementById('video-local').setAttribute('src', 'videos/marcus.mp4');
+    };
+
+    document.getElementById('hotspot2').onclick = function() {
+      document.getElementById('titulo-info').textContent = 'Lancer Assault Rifle';
+      document.getElementById('texto-info').textContent = 'El Lancer es el arma distintiva del universo Gears, con su sierra eléctrica ideal para el combate cercano.';
+      document.getElementById('imagen-info').setAttribute('src', 'images/lancer.png');
+      document.getElementById('video-local').setAttribute('src', 'videos/lancer.mp4');
+    };
+
+    document.getElementById('hotspot3').onclick = function() {
+      document.getElementById('titulo-info').textContent = 'Locust Drone';
+      document.getElementById('texto-info').textContent = 'Los Locust son una raza subterránea que busca aniquilar a la humanidad. Feroces, tácticos y brutales.';
+      document.getElementById('imagen-info').setAttribute('src', 'images/locust.png');
+      document.getElementById('video-local').setAttribute('src', 'videos/locust.mp4');
+    };
+
+    document.getElementById('instrucciones').onclick = function(){
+      document.getElementById('titulo-info').textContent = 'Instrucciones';
+      document.getElementById('texto-info').textContent = 'Haz click en cada punto de la imagen para ver la descripción. Luego realiza la prueba para medir tu conocimiento del universo Gears of War.';
+      document.getElementById('imagen-info').setAttribute('src', 'images/gear-emblem.png');
+      document.getElementById('video-local').setAttribute('src', 'videos/gears_trailer.mp4');
+      document.getElementById('resultado').className = 'invisible';
+    };
+
+    document.getElementById('prueba').onclick = function(){
+      alert("Bienvenido a la prueba de Gears of War");
+      alert("Responde correctamente todas las preguntas para ganar");
+
+      respuesta1 = prompt("¿Cómo se llama el rifle con sierra en Gears of War?").trim();
+      if(respuesta1.toLowerCase() === "lancer" || respuesta1.toLowerCase() === "el lancer" || respuesta1.toLowerCase() === "lancer assault rifle"){
+        alert("¡Correcto!");
+        puntaje += 1;
+      } else {
+        alert("Incorrecto. La respuesta correcta es: Lancer.");
+      }
+      respuesta2 = prompt("¿Quien es el protagonista de Gears of War?").trim();
+      if(respuesta2.toLowerCase() === "Marcus Fenix" || respuesta2.toLowerCase() === "Marcus" || respuesta2.toLowerCase() === "marcus fenix"){
+        alert("¡Correcto!");
+        puntaje += 1;
+      } else {
+        alert("Incorrecto. La respuesta correcta es: Marcus Fenix.");
+      }
+            respuesta3 = prompt("¿Cómo se llaman los enemigos del juego?").trim();
+      if(respuesta3.toLowerCase() === "locust" || respuesta3.toLowerCase() === "los locust" || respuesta3.toLowerCase() === "Locust"){
+        alert("¡Correcto!");
+        puntaje += 1;
+      } else {
+        alert("Incorrecto. La respuesta correcta es: Locust.");
+      }
+        respuesta4 = prompt("¿Cual es el evento que inicio el conflicto de Gears of War entre  los humanos y los Locust?").trim();
+      if(respuesta4.toLowerCase() === "Dia de la emergencia" || respuesta4.toLowerCase() === "El dia de la emergencia" || respuesta4.toLowerCase() === "el dia de la emergencia"){
+        alert("¡Correcto!");
+        puntaje += 1;
+      } else {
+        alert("Incorrecto. La respuesta correcta es: Dia E o Dia de la emergencia.");
+      }
+      
+      document.getElementById("resultado").className = 'visible';
+      document.getElementById("calif").textContent = puntaje + "/5";
+      localStorage.setItem('gears_puntaje', puntaje);
+      puntaje = 0;
+    };
+  </script>
+</body>
+</html>
