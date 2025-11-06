@@ -1,0 +1,203 @@
+/* ===============================
+   GEARS OF WAR CUSTOM THEME
+   =============================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap');
+
+/* ======= BASE ======= */
+body {
+  background: radial-gradient(circle at center, #121212 0%, #0a0a0a 100%);
+  color: #ddd;
+  font-family: 'Rajdhani', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* ======= TITULOS ======= */
+h1, h2, h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: #f04a3e;
+  text-shadow: 0 0 12px rgba(240,74,62,0.6);
+  letter-spacing: 1px;
+}
+
+/* ======= CABECERA ======= */
+#header {
+  background: linear-gradient(90deg, #141414, #1a1a1a);
+  border-bottom: 3px solid #f04a3e;
+  text-align: center;
+  padding: 20px 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+  animation: flicker 3s infinite alternate;
+}
+#header h3 { margin: 0; font-size: 1.6em; }
+#header p { color: #aaa; margin-top: 8px; }
+
+/* ======= CONTENEDORES ======= */
+#seccion {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+}
+
+.barra, .contenido {
+  border-radius: 10px;
+  box-shadow: 0 0 18px rgba(240,74,62,0.2);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.barra:hover, .contenido:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 22px rgba(240,74,62,0.5);
+}
+
+/* ======= IMAGEN INTERACTIVA ======= */
+#imagen-interactiva {
+  position: relative;
+  width: 340px;
+  height: 640px;
+  border-radius: 12px;
+  border: 2px solid rgba(240,74,62,0.25);
+  background-size: cover;
+  background-position: center;
+  background-color: #0e0e0e;
+  box-shadow: 0 0 30px rgba(240,74,62,0.15);
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+#imagen-interactiva:hover {
+  border-color: rgba(240,74,62,0.6);
+  box-shadow: 0 0 40px rgba(240,74,62,0.3);
+}
+
+/* ======= HOTSPOTS ======= */
+.hotspot {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid #f04a3e;
+  background: radial-gradient(circle at center, rgba(240,74,62,0.5), rgba(0,0,0,0.6));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  text-shadow: 0 0 5px #f04a3e;
+  transition: transform .3s ease, background .3s ease, box-shadow .3s ease;
+}
+
+.hotspot:hover {
+  transform: scale(1.2);
+  background: rgba(240,74,62,0.9);
+  box-shadow: 0 0 20px rgba(240,74,62,0.8);
+}
+
+/* ======= PANEL DE INFORMACIÓN ======= */
+.contenido {
+  flex: 1 150px;
+  min-width: 280px;
+  background: linear-gradient(180deg, #1a1a1b, #121213);
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.subcontenido2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.proyecto {
+  height: 140px;
+  width: 140px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0c0c0c;
+  box-shadow: 0 0 18px rgba(0,0,0,0.6);
+}
+.proyecto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.9);
+  transition: filter .3s ease;
+}
+.proyecto img:hover {
+  filter: brightness(1.1);
+}
+
+/* ======= VIDEO ======= */
+.video-container {
+  margin-top: 12px;
+  border: 2px solid rgba(240,74,62,0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 0 25px rgba(240,74,62,0.15);
+}
+video, iframe {
+  width: 100%;
+  height: 220px;
+  display: block;
+}
+
+/* ======= FOOTER ======= */
+#footer {
+  text-align: center;
+  padding: 20px;
+  background: #0c0c0c;
+  border-top: 3px solid #f04a3e;
+}
+#footer img {
+  transition: transform .3s ease, filter .3s ease;
+}
+#footer img:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 10px #f04a3e);
+}
+
+/* ======= RESULTADOS ======= */
+#resultado.visible {
+  animation: glow 2s infinite alternate;
+}
+.texto-rojo {
+  color: #f04a3e;
+  text-shadow: 0 0 15px rgba(240,74,62,0.6);
+  font-size: 2em;
+}
+
+/* ======= SCROLLBAR ======= */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb {
+  background: #f04a3e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: #ff6256; }
+
+/* ======= ANIMACIONES ======= */
+@keyframes flicker {
+  0% { box-shadow: 0 0 10px rgba(240,74,62,0.3); }
+  50% { box-shadow: 0 0 20px rgba(240,74,62,0.7); }
+  100% { box-shadow: 0 0 10px rgba(240,74,62,0.3); }
+}
+@keyframes glow {
+  0% { text-shadow: 0 0 10px #f04a3e; }
+  100% { text-shadow: 0 0 25px #ff7568; }
+}
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 768px) {
+  #imagen-interactiva {
+    width: 260px;
+    height: 520px;
+  }
+  video, iframe {
+    height: 180px;
+  }
+}
