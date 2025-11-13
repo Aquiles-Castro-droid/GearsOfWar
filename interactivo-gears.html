@@ -213,6 +213,34 @@
       } else {
         alert("Incorrecto. La respuesta correcta es: Dia E o Dia de la emergencia.");
       }
+      respuesta5 = prompt("¿cuantas armas tiene el juego?").trim();
+      if(respuesta5.toLowerCase() === "12" || respuesta5.toLowerCase() === "12" || respuesta4.toLowerCase() === "el dia de la emergencia"){
+        alert("¡Correcto!");
+        puntaje += 1;
+      } else {
+        alert("Incorrecto. La respuesta correcta es: 12.");
+      }
+      respuesta6 = prompt("¿Cuantos juegan?").trim();
+      if(respuesta6.toLowerCase() === "1" || respuesta6.toLowerCase() === "1" || respuesta4.toLowerCase() === "el dia de la emergencia"){
+        alert("¡Correcto!");
+        puntaje += 1;
+      } else {
+        alert("Incorrecto. La respuesta correcta es: 1.");
+      }
+      respuesta7 = prompt("¿Cuantos juegos son en total?").trim();
+      if(respuesta7.toLowerCase() === "5" || respuesta7.toLowerCase() === "5" || respuesta4.toLowerCase() === "el dia de la emergencia"){
+        alert("¡Correcto!");
+        puntaje += 1;
+      } else {
+        alert("Incorrecto. La respuesta correcta es: 5.");
+      }
+      respuesta8 = prompt("¿Cuantas preguntas fueron?").trim();
+      if(respuesta8.toLowerCase() === "8" || respuesta8.toLowerCase() === "8" || respuesta4.toLowerCase() === "el dia de la emergencia"){
+        alert("¡Correcto!");
+        puntaje += 1;
+      } else {
+        alert("Incorrecto. La respuesta correcta es: 8.");
+      }
       
       document.getElementById("resultado").className = 'visible';
       document.getElementById("calif").textContent = puntaje + "/5";
